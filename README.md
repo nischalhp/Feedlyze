@@ -12,6 +12,6 @@ We can provide realtime analysis by performing some basic text analytics i.e Ste
 
 * Python
 * Flask
-* MySql
-* Looking out for a open source python text analytics library
-* Some custom functions
+* Reading google forms output
+* NLTK
+
