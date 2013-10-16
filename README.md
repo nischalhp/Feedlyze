@@ -14,4 +14,5 @@ We can provide realtime analysis by performing some basic text analytics i.e Ste
 * Flask
 * Reading google forms output
 * NLTK
+* gspread
 
