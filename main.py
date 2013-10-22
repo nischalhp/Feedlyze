@@ -15,7 +15,7 @@ def atBase():
 
 @app.route('/analyze/<path>')
 def analyzeData(path):
-	readCsvObj = readCsv.readCsv(path)
+	readCsvObj = readCsv.GetData(path)
 	data = readCsvObj.getData()
 	print data
 
