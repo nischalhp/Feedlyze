@@ -17,6 +17,8 @@ def atBase():
 def analyzeData(path):
 	readCsvObj = readCsv.GetData(path)
 	data = readCsvObj.getData()
+	#now we a dictionary of questions and answers
+	
 	print data
 
 
