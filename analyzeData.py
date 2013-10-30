@@ -2,6 +2,7 @@ import re
 class analyze:
 
 	excel_dictionary = {}
+	output_obj = {}
 
 	def __init__(self):
 		return 
@@ -116,5 +117,7 @@ class analyze:
 							list_styles.append(key)
 							interpretation[style] = list_styles
 
-		for key,value in interpretation.iteritems():
-		    print key,value
+		#return output
+		return interpretation
+
+		

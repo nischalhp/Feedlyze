@@ -2,6 +2,7 @@ from flask import Flask
 from flask import request
 from flask import render_template
 import readCsv
+import analyzeData
 
 app = Flask(__name__)
 
@@ -16,8 +17,13 @@ def atBase():
 @app.route('/analyze/<path>')
 def analyzeData(path):
 	readCsvObj = readCsv.GetData(path)
-	data = readCsvObj.getData()
 	#now we a dictionary of questions and answers
+	data = readCsvObj.getData()
+	analyzeObj = analyzeData.analyze(data)
+	analyzedData = analyzeObj.analyzeData()
+	#now we have analyzed data types , the questions and the answers to those question in data obj
+	#lets build a json of the type,question,answers
+	#so type is an array of questions, and questions has again an array of answers
 	
 	print data
 
