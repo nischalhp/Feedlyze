@@ -1,4 +1,5 @@
 import re
+#refactor the class name to analyzer
 class analyze:
 
 	excel_dictionary = {}
@@ -118,6 +119,8 @@ class analyze:
 							interpretation[style] = list_styles
 
 		#return output
+		for key,value in interpretation.iteritems():
+			print key,value
 		return interpretation
 
 		
