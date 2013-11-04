@@ -25,9 +25,10 @@ def analyzeData(path):
 	#now we have analyzed data types , the questions and the answers to those question in data obj
 	#lets build a json of the type,question,answers
 	#so type is an array of questions, and questions has again an array of answers
-	
-	print data
-
+	for key,value in analyzeData.iteritems():
+		if key == 'opinion':
+			
+			
 
 if __name__=='__main__':
 	app.run(debug=True)
