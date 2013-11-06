@@ -21,7 +21,7 @@ nv.addGraph(function() {
        .y(function(d) { return d.value })
         .showLabels(true);
   
-      d3.select("#chart svg")
+      d3.selectAll(".chart svg")
           .datum(sampleData.answers)
         .transition().duration(1200)
          .call(chart);
@@ -38,7 +38,7 @@ nv.addGraph(function() {
        .labelThreshold(.05)
        .donut(true);
  
-     d3.select("#chart2 svg")
+     d3.selectAll(".chart2 svg")
          .datum(sampleData.answers)
        .transition().duration(1200)
          .call(chart);
