@@ -15,4 +15,4 @@ class AnalyzedJson:
 		self.answers = answers
 
 	def toJson(self):
-		return json.dumps({'style':"'"+self.style+"'",'question':"'"+self.question+"'",'answers':"'"+self.answers+"'"})
+		return {'style':self.style,'question':self.question,'answers':self.answers}	
