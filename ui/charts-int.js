@@ -9,21 +9,23 @@ angular.module('myApp', []).
          //We restrict its use to an element
          //as usually  <bars-chart> is semantically
          //more understandable
-         restrict: 'E',
+         restrict: 'EA',
          //this is important,
          //we don't want to overwrite our directive declaration
          //in the HTML mark-up
          replace: false,
          //our data source would be an array
          //passed thru chart-data attribute
-         scope: {},
+         scope: {
+           item:'=pieChart'
+         },
         transclude: true,
          link: function ($scope, element, attrs) {
            //in D3, any selection[0] contains the group
            //selection[0][0] is the DOM node
            //but we won't need that this time
 
-           var chart = d3.select(element[0]).append('svg').attr('width',20).attr('height',20);
+           var chart = d3.select(element[0]).append('svg').attr('width',50).attr('height',50);
            
              //to our original directive markup bars-chart
            //we add a div with out chart stling and bind each
@@ -39,14 +41,12 @@ angular.module('myApp', []).
                    .donut(true)
                     .showLabels(true);
 
-             chart.data([$scope.$parent.sData])
+             chart.data([$scope.item])
                     .transition().duration(1200)
                      .call(nvPieChart);
              
-               return chart;
+               //return chart;
             
-             
-             
            //a little of magic: setting it's width based
            //on the data value (d) 
            //and text all with a smooth transition
@@ -56,26 +56,32 @@ angular.module('myApp', []).
    });
 
 function Ctrl($scope) {
-    $scope.sampleData={
-  "question":"ques2",
-  "answers":[
-    {
-        "label" : "yes",
-        "value" : "40"
+    $scope.questions=[
+      {
+        "question":"ques2",
+        "answers":[
+          {
+              "label" : "yes",
+              "value" : "40"
+          },
+          {
+              "label" : "no",
+              "value" : "60"
+          }
+        ]
     },
-    {
-        "label" : "no",
-        "value" : "60"
+      {
+        "question":"ques1",
+        "answers":[
+          {
+              "label" : "yes",
+              "value" : "20"
+          },
+          {
+              "label" : "no",
+              "value" : "10"
+          }
+        ]
     }
-  ]
-};
-    
-    $scope.sData = [{
-        "label" : "yes",
-        "value" : "40"
-    },
-    {
-        "label" : "no",
-        "value" : "60"
-    }];
+  ];
 }

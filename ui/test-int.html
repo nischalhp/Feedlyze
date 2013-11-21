@@ -4,13 +4,19 @@
     <title>Feedback Analyser</title>
     <link rel="stylesheet" type="text/css" href="css/nv.d3.min.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 
 </head>
 
 <body>
 
   <div ng-app="myApp" ng-controller="Ctrl">
-    <pie-chart></pie-chart>
+    <ul>
+      <li ng-repeat="q in questions">
+        <div >{{q.question}}</div>
+        <div pie-chart="q.answers"></div>
+      </li>
+    </ul>
   </div>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
