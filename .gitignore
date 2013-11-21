@@ -1,11 +1,9 @@
 # Created by http://gitignore.io
 
 ### OSX ###
-*.DS_Store
 .AppleDouble
 .LSOverride
 Icon
-*/*.swp
 
 # Thumbnails
 ._*
