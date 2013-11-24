@@ -3,14 +3,15 @@ import re
 #refactor the class name to Analyzer
 class Analyzer:
 
-	excel_dictionary = {}
-	output_obj = {}
+	#excel_dictionary = {}
+	#output_obj = {}
 
 	def __init__(self):
 		return 
 
 	def __init__(self,dictionary):
 		self.excel_dictionary = dictionary
+		self.output_obj = {}
 
 	def analyzeData(self):
 		# analyze the data and group them into different parts
@@ -22,6 +23,7 @@ class Analyzer:
 		interpretation = {}
 		for key,value in self.excel_dictionary.iteritems():
 			#empty list check
+			#print key,value
 			if all(word == '' for word in value):
 				style = 'none'
 				# assuming that same questions are not repeated
@@ -81,7 +83,8 @@ class Analyzer:
 
 			# for those which require some basic text analytics to be done
 			if max_length > 1:
-				if all(re.match('^[a-zA-Z].*$',word) or word == '' for word in value):
+				#print value
+				if all(re.match('^[0-9a-zA-Z].*$',word) or word == '' for word in value):
 					#its an actual string and not some number like date
 					# it may so happen the reponse that is a bigger string is actually a repetitive response which can go in again as opinion 
 					# assuming that in a size of 10 elements in a list , only 2 strings are used 10 times then its basically a poll
@@ -90,6 +93,7 @@ class Analyzer:
 					size_of_list = len(list_without_nulls)
 					unique_list = list(set(list_without_nulls))
 					size_of_unique_list = len(unique_list)
+					#print size_of_unique_list,size_of_list,value
 					#print list_without_nulls,size_of_list,unique_list,size_of_unique_list
 					if size_of_unique_list <= 3 and size_of_list > 3:
 						#basically this a poll again
@@ -120,8 +124,8 @@ class Analyzer:
 							interpretation[style] = list_styles
 
 		#return output
-		# for key,value in interpretation.iteritems():
-		# 	print key,value
+		for key,value in interpretation.iteritems():
+		 	print key,value
 		return interpretation
 
 		

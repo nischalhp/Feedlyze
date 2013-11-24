@@ -25,7 +25,7 @@ class TextAnalyzer:
 		#find entities and TFIDF for each answers and then add it up in the end
 		for answer in answers:
 			if answer != '':
-				print answer
+				#print answer
 				#sentence tokenzier
 				sentences = sent_tokenize(answer)
 				# word tokenizer
@@ -39,7 +39,8 @@ class TextAnalyzer:
 				for tree in chunks:
 					#print tree,"tree"
 					self.extractEntities(tree)
-				print self.entities
+				
+				#print self.entities
 				
 
 
