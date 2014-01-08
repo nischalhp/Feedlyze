@@ -14,8 +14,9 @@ analyzedData = analyzeObj.analyzeData()
 #lets build a json of the type,question,answers
 #so type is an array of questions, and questions has again an array of answers
 generateJsonObj = generatejson.JSONUtil()		
+#print analyzedData
 jsonOp = generateJsonObj.generateJson(data,analyzedData)
-			
+	
 #print json.dumps({'data':inner_json_dict})
 
 

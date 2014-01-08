@@ -9,6 +9,7 @@ class JSONUtil:
 		
 	# generateJson
 	def generateJson(self,outputDictionary,analyzeData):
+		
 		inner_json_dict = []
 		for key,value in analyzeData.iteritems():
 			if key == 'opinion':
@@ -30,12 +31,9 @@ class JSONUtil:
 			
 			if key == 'analytics':
 				for question in value:
-					print question
+					#print question
 					answers = outputDictionary[question]
 					textAnalyticsObj = textAnalytics.TextAnalyzer()
 					textAnalyticsObj.analyzeText(answers)
-
-					
-
 
 		inner_json = json.dumps({'data':inner_json_dict})	
