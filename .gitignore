@@ -1,5 +1,4 @@
 # Created by http://gitignore.io
-
 ### OSX ###
 .AppleDouble
 .LSOverride
@@ -11,6 +10,7 @@ Icon
 # Files that might appear on external disk
 .Spotlight-V100
 .Trashes
+.DS_Store
 
 ### Python ###
 *.py[cod]
@@ -62,3 +62,4 @@ nosetests.xml
 [Ii]nclude
 [Ll]ib
 [Ss]cripts
+
