@@ -28,8 +28,8 @@ def analyzeData(path):
 	#so type is an array of questions, and questions has again an array of answers
 	generateJsonObj = generatejson.JSONUtil()		
 	jsonOp = generateJsonObj.generatejson(data,analyzeData)
-			
+	print jsonOp	
 
 if __name__=='__main__':
-	app.run(debug=True)
+	app.run(host='0.0.0.0',debug=True)
 
