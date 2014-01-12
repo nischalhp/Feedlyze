@@ -2,3 +2,5 @@ Flask
 nltk
 PyMongo
 Flask-PyMongo
+gspread
+nltk_data
