@@ -3,8 +3,8 @@ import re
 #refactor the class name to Analyzer
 class Analyzer:
 
-	#excel_dictionary = {}
-	#output_obj = {}
+	excel_dictionary = {}
+	output_obj = {}
 
 	def __init__(self):
 		return 

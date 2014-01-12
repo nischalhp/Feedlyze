@@ -17,6 +17,7 @@ class CSVReader:
 
 	def getData(self):
 		# need to read email and pass from a cnfig later
+		
 		gc = gspread.login('analyzedatum@gmail.com','mynameisanalyzedatum')
 		
 		# gets worksheets
@@ -47,7 +48,7 @@ class CSVReader:
 					values.append(value)
 					question_answers[key] = values
 
-		# for key,value in question_answers.iteritems():
-		# 	print key,value
+		#for key,value in question_answers.iteritems():
+			#print key,value
 
 		return question_answers	
