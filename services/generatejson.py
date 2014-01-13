@@ -37,3 +37,4 @@ class JSONUtil:
 					textAnalyticsObj.analyzeText(answers)
 
 		inner_json = json.dumps({'data':inner_json_dict})	
+		return inner_json

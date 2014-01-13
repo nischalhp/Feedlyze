@@ -40,7 +40,7 @@ class TextAnalyzer:
 					#print tree,"tree"
 					self.extractEntities(tree)
 				
-				#print self.entities
+				print self.entities
 				
 
 
