@@ -6,8 +6,9 @@ outputDictionary = readObj.getData()
 #print outputDictionary
 analyzeObj = analyzeData.Analyzer(outputDictionary)
 interpretation = analyzeObj.analyzeData()
+print interpretation
 #all questions with answer have been put in their bins
-# now need to run analysis on text objects
-JSONObj = JSONUtil()
-JsonOutput = JSONObj.generateJson(outputDictionary,interpretation)
-print JSONObj
+# now need to run analysis on text objectsvagrant 
+#JSONObj = JSONUtil()
+#JsonOutput = JSONObj.generateJson(outputDictionary,interpretation)
+#print JSONObj
