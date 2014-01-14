@@ -1,20 +1,24 @@
 from flask import Flask
 from flask import request
 from flask import render_template
+from flask import send_file
 import readCsv
 import analyzeData
 import json
 import generatejson
 
+
 app = Flask(__name__)
 
 @app.route('/')
 def atHome():
-	return render_template('index.html')
+	return send_file('static/index.html')
 
 @app.route('/index.html')
 def atBase():
-	return render_template('index.html')
+	#return render_template('index.html')
+	return send_file('static/index.html')
+
 
 @app.route('/analyze/<path>')
 def analyzeData(path):
