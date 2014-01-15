@@ -18,6 +18,8 @@ $(function(){
 			/*
 				Update html with various statistical data
 			*/
+			 $(body).append("<table class='table table-striped'></table>")
+
 		}
 
 		function analyzeFailure(xhr){
