@@ -124,8 +124,8 @@ class Analyzer:
 							interpretation[style] = list_styles
 
 		#return output
-		for key,value in interpretation.iteritems():
-		 	print key,value
+		# for key,value in interpretation.iteritems():
+		#  	print key,value
 		return interpretation
 
 		

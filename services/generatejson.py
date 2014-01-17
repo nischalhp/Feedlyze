@@ -8,8 +8,35 @@ from collections import Counter
 class JSONUtil:
 		
 	# generateJson
-	def generateJson(self,outputDictionary,analyzeData):
-		
+
+	def generateJsonOpinion(self,outputDictionary,analyzeData):
+		inner_json_list = []
+		questions = analyzeData['opinion']
+		for question in questions:
+			answers = outputDictionary[question]
+			dict_of_answers =  dict(Counter(answers))
+			analyzedJson = getAnalyzedJson.AnalyzedJson(key,question,dict_of_answers) 	
+			analyzedJson = analyzedJson.toJson()
+			inner_json_list.append(analyzedJson)
+		return inner_json_list
+
+
+	def generateJsonScale(self,outputDictionary,analyzeData):
+		inner_json_list = []
+		questions = analyzeData['scale']
+		for question in questions
+			answers = outputDictionary[question]
+			dict_of_answers = dict(Counter(answers))
+			analyzedJson = getAnalyzedJson.AnalyzedJson(key,question,dict_of_answers) 	
+			analyzedJson = analyzedJson.toJson()
+			#print analyzedJson
+			inner_json_list.append(analyzedJson)
+		return inner_json_list
+
+	def generateJsonAnalytics()
+
+
+	def generateJson(self,outputDictionary,analyzeData):		
 		inner_json_dict = []
 		for key,value in analyzeData.iteritems():
 			if key == 'opinion':
