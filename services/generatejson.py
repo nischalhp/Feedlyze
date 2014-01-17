@@ -18,22 +18,36 @@ class JSONUtil:
 			analyzedJson = getAnalyzedJson.AnalyzedJson(key,question,dict_of_answers) 	
 			analyzedJson = analyzedJson.toJson()
 			inner_json_list.append(analyzedJson)
-		return inner_json_list
+		inner_json = json.dumps({'data':inner_json_dict})	
+		return inner_json
 
 
 	def generateJsonScale(self,outputDictionary,analyzeData):
 		inner_json_list = []
 		questions = analyzeData['scale']
-		for question in questions
+		for question in questions:
 			answers = outputDictionary[question]
 			dict_of_answers = dict(Counter(answers))
 			analyzedJson = getAnalyzedJson.AnalyzedJson(key,question,dict_of_answers) 	
 			analyzedJson = analyzedJson.toJson()
 			#print analyzedJson
 			inner_json_list.append(analyzedJson)
-		return inner_json_list
+		inner_json = json.dumps({'data':inner_json_dict})	
+		return inner_json
 
-	def generateJsonAnalytics()
+	def generateJsonAnalytics(self,outputDictionary,analyzeData):
+		inner_json_list = []
+		questions = analyzeData['analytics']
+		for question in questions:
+			answers = outputDictionary[question]
+			textAnalyticsObj = textAnalytics.TextAnalyzer()
+			textAnalyticsObj.analyzeText(answers)
+			analyzedJson = getAnalyzedJson.AnalyzedJson(key,question,dict_of_answers) 	
+			analyzedJson = analyzedJson.toJson()
+			#print analyzedJson
+			inner_json_list.append(analyzedJson)
+		inner_json = json.dumps({'data':inner_json_dict})	
+		return inner_json
 
 
 	def generateJson(self,outputDictionary,analyzeData):		

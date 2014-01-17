@@ -5,24 +5,17 @@ from nltk import batch_ne_chunk ,pos_tag
 class TextAnalyzer:
 
 
+
+
 	def __init__(self):
 		self.entities = []
 
-	def extractEntities(self,tree):
-		if hasattr(tree, 'node') and tree.node:
-			#print tree.node,"tree node"
-			if tree.node == 'NE':
-				for child in tree:
-					self.entities.append(' '.join([child[0] for child in tree]))
-					#print child,"child"
-			else:
-				for child in tree:
-					#print child,"recursive child"
-					self.extractEntities(child)
+
 
 
 	def analyzeText(self,answers):
-		#find entities and TFIDF for each answers and then add it up in the end
+		#does tokenization , pos tagging , chunking and returns all 3 of them
+		
 		for answer in answers:
 			if answer != '':
 				#print answer
@@ -34,14 +27,34 @@ class TextAnalyzer:
 				postags = [pos_tag(token) for token in tokens]
 				#chunking
 				chunks = batch_ne_chunk(postags,binary=True)
-				#find entites
+				print type(chunks),"chunks type"
+				
+			
+    
+
+	###### ENTITY EXTRACTOR ##########
+
+
+	def entityExtraction(self,chunks):
+		#find entites
 				entites = []
 				for tree in chunks:
 					#print tree,"tree"
 					self.extractEntities(tree)
-				
+					
 				print self.entities
-				
+
+	def extractEntities(self,tree):
+	if hasattr(tree, 'node') and tree.node:
+		#print tree.node,"tree node"
+		if tree.node == 'NE':
+			for child in tree:
+				self.entities.append(' '.join([child[0] for child in tree]))
+				#print child,"child"
+		else:
+			for child in tree:
+				#print child,"recursive child"
+				self.extractEntities(child)
 
 
 
