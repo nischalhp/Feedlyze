@@ -15,7 +15,7 @@ class EntityExtractor:
         for tree in self.chunks:
             #print tree,"tree"
             self.extractEntities(tree)       
-        print self.entities
+        print list(set(self.entities))
 
     def extractEntities(self,tree):
         
