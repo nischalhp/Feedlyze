@@ -11,7 +11,7 @@ class TextAnalyzer:
 		questions = analyzeData[key]
 		for question in questions:
 			answers = outputDictionary[question]
-			print question,answers
+			#print question,answers
 			TAObj = self.analyzeText(answers)
 			TA_Obj_list.append(TAObj)	
 			#print TAObj.sentences,TAObj.tokens,TAObj.postags,TAObj.chunks
