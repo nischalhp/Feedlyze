@@ -24,20 +24,20 @@ class TextAnalyzer:
 
 	def analyzeText(self,question,answers):
 		#does tokenization , pos tagging , chunking and returns all 3 of them		
-		for answer in answers:
-			if answer != '':
-				#print answer
-				#sentence tokenzier
-				sentences = sent_tokenize(answer)
-				# word tokenizer
-				tokens = [word_tokenize(sentence) for sentence in sentences]
-				#pos tagger
-				postags = [pos_tag(token) for token in tokens]
-				#chunking
-				chunks = batch_ne_chunk(postags,binary=True)
-				TAObj = TextAnalyticsObj(question,answer,sentences,tokens,postags,chunks)
-				return TAObj
-				#print type(chunks),"chunks type"
+		# for answer in answers:
+		answers = ''.join(answers)
+		#print answer
+		#sentence tokenzier
+		sentences = sent_tokenize(answers)
+		# word tokenizer
+		tokens = [word_tokenize(sentence) for sentence in sentences]
+		#pos tagger
+		postags = [pos_tag(token) for token in tokens]
+		#chunking
+		chunks = batch_ne_chunk(postags,binary=True)
+		TAObj = TextAnalyticsObj(question,answers,sentences,tokens,postags,chunks)
+		return TAObj
+		#print type(chunks),"chunks type"
 
 
 
