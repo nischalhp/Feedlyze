@@ -4,7 +4,7 @@ from generatejson import JSONUtil
 import thread
 from textAnalytics import TextAnalyzer
 from entityExtraction import EntityExtractor
-
+from getStatistics import StatisticsFinder
 
 readObj = readCsv.CSVReader('https://docs.google.com/spreadsheet/ccc?key=0AiNZkDgFRjjOdERzLU01NTdVeE5ZaDUzbi1xNTRfSnc&usp=sharing#gid=0')
 outputDictionary = readObj.getData()
@@ -22,11 +22,21 @@ JsonOutputOpinion = JSONObj.generateJson(outputDictionary,interpretation,'opinio
 print JsonOutputOpinion
 JsonOutputScale = JSONObj.generateJson(outputDictionary,interpretation,'scale')
 print JsonOutputScale
+
+
 TextAnalyticsObj = TextAnalyzer()
 TAObjList = TextAnalyticsObj.performBasicAnalytics(outputDictionary,interpretation)
 #entityExtractor
 for TAObj in TAObjList:
     entityObj = EntityExtractor(TAObj.chunks)
     entityObj.entityExtraction()
+    statisticsObj = StatisticsFinder()
+    tf_table = statisticsObj.getTfidf(TAObj.tokens)
     #print entityObj
     #print JSONObj
+
+#adding tfidf
+
+
+
+
