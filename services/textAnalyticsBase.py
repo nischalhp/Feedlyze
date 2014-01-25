@@ -2,12 +2,16 @@
 
 class TextAnalyticsObj:
 
+    question = ""
+    answer = ""
     sentences = []
     tokens = []
     postags = []
     chunks = []
 
-    def __init__(self,sentences,tokens,postags,chunks):
+    def __init__(self,question,answers,sentences,tokens,postags,chunks):
+        self.question = question
+        self.answers = answers
         self.sentences = sentences
         self.tokens = tokens
         self.postags = postags
