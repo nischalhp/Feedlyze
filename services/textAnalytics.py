@@ -12,7 +12,7 @@ class TextAnalyzer:
 		for question in questions:
 			answers = outputDictionary[question]
 			#print question,answers
-			TAObj = self.analyzeText(answers)
+			TAObj = self.analyzeText(question,answers)
 			TA_Obj_list.append(TAObj)	
 			#print TAObj.sentences,TAObj.tokens,TAObj.postags,TAObj.chunks
 		# 	analyzedJson = getAnalyzedJson.AnalyzedJson(key,question,dict_of_answers) 	
@@ -22,9 +22,8 @@ class TextAnalyzer:
 		# inner_json = json.dumps({'data':inner_json_dict})	
 		return TA_Obj_list
 
-	def analyzeText(self,answers):
-		#does tokenization , pos tagging , chunking and returns all 3 of them
-		
+	def analyzeText(self,question,answers):
+		#does tokenization , pos tagging , chunking and returns all 3 of them		
 		for answer in answers:
 			if answer != '':
 				#print answer
@@ -36,7 +35,7 @@ class TextAnalyzer:
 				postags = [pos_tag(token) for token in tokens]
 				#chunking
 				chunks = batch_ne_chunk(postags,binary=True)
-				TAObj = TextAnalyticsObj(sentences,tokens,postags,chunks)
+				TAObj = TextAnalyticsObj(question,answer,sentences,tokens,postags,chunks)
 				return TAObj
 				#print type(chunks),"chunks type"
 
