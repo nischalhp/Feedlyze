@@ -20,19 +20,21 @@ JSONObj = JSONUtil()
 #now since we have 3 things - scale , opinion and analytics 
 JsonOutputOpinion = JSONObj.generateJson(outputDictionary,interpretation,'opinion')
 print JsonOutputOpinion
+
 JsonOutputScale = JSONObj.generateJson(outputDictionary,interpretation,'scale')
 print JsonOutputScale
 
 
 TextAnalyticsObj = TextAnalyzer()
 TAObjList = TextAnalyticsObj.performBasicAnalytics(outputDictionary,interpretation)
+
 #entityExtractor
 for TAObj in TAObjList:
-    entityObj = EntityExtractor(TAObj.chunks)
-    entityObj.entityExtraction()
-    statisticsObj = StatisticsFinder()
-    tf_table = statisticsObj.getTfidf(TAObj.tokens)
-    #print entityObj
+	entityObj = EntityExtractor(TAObj.chunks)
+	statisticsObj = StatisticsFinder()
+	tf_table = statisticsObj.getTfidf(TAObj.tokens)
+	print entityObj.entityExtraction(),tf_table
+#print entityObj
     #print JSONObj
 
 #adding tfidf
