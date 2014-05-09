@@ -4,3 +4,4 @@ PyMongo
 Flask-PyMongo
 gspread
 nltk_data
+numpy
