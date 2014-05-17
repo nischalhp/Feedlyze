@@ -1,5 +1,5 @@
 from nltk.tokenize import word_tokenize,wordpunct_tokenize, sent_tokenize 
-from nltk import batch_ne_chunk ,pos_tag
+from nltk import batch_ne_chunk ,pos_tag,ne_chunk
 from textAnalyticsDAO import TextAnalyticsObj
 # TextAnalyzer
 class TextAnalyzer:
