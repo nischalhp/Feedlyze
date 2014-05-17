@@ -15,15 +15,16 @@ class EntityExtractor:
         for tree in self.chunks:
             #print tree,"tree"
             self.extractEntities(tree)       
-        #print list(set(self.entities))
+        print list(set(self.entities))
 
     def extractEntities(self,tree):
-        
+       
         if hasattr(tree, 'node') and tree.node:
             #print tree.node,"tree node"
             if tree.node == 'NE':
+                #print tree
                 for child in tree:
-                    self.entities.append(''.join([child[0] for child in tree]))
+                    self.entities.append(' '.join([child[0] for child in tree]))
                     #print child,"child"
             else:
                 for child in tree:
