@@ -16,6 +16,7 @@ class EntityExtractor:
             #print tree,"tree"
             self.extractEntities(tree)       
         print list(set(self.entities))
+        return self.entities
 
     def extractEntities(self,tree):
        
